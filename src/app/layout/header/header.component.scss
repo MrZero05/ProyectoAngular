@@ -43,3 +43,79 @@ header {
 .cartBtn img {
   width: 20px;
 }
+
+
+/* Search input */
+
+.wrap {
+  width: 25%;
+  top: 50%;
+  left: 50%;
+  transform: translate(0%, -2%);
+
+  form {
+    display: flex;
+  }
+}
+.search {
+  position: relative;
+  display: flex;
+}
+.searchTerm {
+  width: 100%;
+  border: 3px solid #757575;
+  border-right: none;
+  padding: 5px;
+  height: 20px;
+  border-radius: 5px 0 0 5px;
+  outline: none;
+  color: #757575;
+
+  :focus {
+    color: #757575;
+  }
+
+}
+
+.searchButton {
+  width: 40px;
+  height: 36px;
+  border: 1px solid #757575;
+  background: #757575;
+  text-align: center;
+  color: #fff;
+  border-radius: 0 5px 5px 0;
+  cursor: pointer;
+  font-size: 20px;
+}
+
+.fa {
+  font: normal normal normal 14px/1 FontAwesome;
+  font-size: inherit;
+}
+
+.fa-search:before {
+  content: "\f002";
+}
+
+
+/* end search */
+
+/* Navigation bar styles */
+
+nav {
+  display: flex;
+}
+
+.nav-bar {
+  padding: 10px;
+  color: #24292e;
+  margin: 0 15px 0 15px;
+}
+.nav-bar>a {
+  color: #757575;
+}
+
+.mr-1 {
+  margin-right: 16px;
+}

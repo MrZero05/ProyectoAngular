@@ -70,11 +70,11 @@ header {
   border-radius: 5px 0 0 5px;
   outline: none;
   color: #757575;
+  box-sizing: unset;
 
   :focus {
     color: #757575;
   }
-
 }
 
 .searchButton {

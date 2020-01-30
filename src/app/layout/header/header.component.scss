@@ -63,59 +63,51 @@ header {
 }
 .searchTerm {
   width: 100%;
-  border: 3px solid #757575;
+  border: 3px solid $font-header-color;
   border-right: none;
   padding: 5px;
   height: 20px;
   border-radius: 5px 0 0 5px;
   outline: none;
-  color: #757575;
+  color: $font-header-color;
   box-sizing: unset;
 
   :focus {
-    color: #757575;
+    color: $font-header-color;
   }
 }
-
 .searchButton {
   width: 40px;
   height: 36px;
-  border: 1px solid #757575;
-  background: #757575;
+  border: 1px solid $font-header-color;
+  background: $font-header-color;
   text-align: center;
   color: #fff;
   border-radius: 0 5px 5px 0;
   cursor: pointer;
   font-size: 20px;
 }
-
 .fa {
   font: normal normal normal 14px/1 FontAwesome;
   font-size: inherit;
 }
-
 .fa-search:before {
   content: "\f002";
 }
-
-
 /* end search */
 
 /* Navigation bar styles */
-
 nav {
   display: flex;
 }
-
 .nav-bar {
   padding: 10px;
   color: #24292e;
   margin: 0 15px 0 15px;
 }
 .nav-bar>a {
-  color: #757575;
+  color: $font-header-color;
 }
-
 .mr-1 {
   margin-right: 16px;
 }

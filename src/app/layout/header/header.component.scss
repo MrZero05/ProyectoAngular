@@ -1,113 +1,136 @@
 $font-header-color: #757575;
 $flex-display: flex;
-
 header {
-  width: 99%;
-  padding: 10px;
-  background-color: #fff;
-  color: $font-header-color;
-  display: $flex-display;
-  flex-direction: row;
-  justify-content: center;
+    width: 99%;
+    padding: 10px;
+    background-color: #fff;
+    color: $font-header-color;
+    display: $flex-display;
+    flex-direction: row;
+    justify-content: center;
+    font-size: 12px;
+    line-height: 1.75;
+    letter-spacing: 1.7px;
+    text-transform: uppercase;
+    color: rgb(33, 42, 47);
+}
 
-  font-size: 12px;
-  line-height: 1.75;
-  letter-spacing: 1.7px;
-  text-transform: uppercase;
-  color: rgb(33, 42, 47);
-}
 .header-item {
-  display: $flex-display;
-  margin-right: 16px;
-  color: $font-header-color;
+    display: $flex-display;
+    margin-right: 16px;
+    color: $font-header-color;
 }
+
 .header-item-link a {
-  color: $font-header-color;
+    color: $font-header-color;
 }
+
+.header-item-link>a:hover {
+    color: orange!important;
+}
+
 .header-item-full {
-  flex: auto;
-  justify-content: flex-end;
-  display: $flex-display;
-  align-items: center;
+    flex: auto;
+    justify-content: flex-end;
+    display: $flex-display;
+    align-items: center;
 }
+
 .headerMenu>div {
-  margin-right: 16px;
+    margin-right: 16px;
 }
+
 .logo img {
-  width: 40px;
+    width: 40px;
 }
+
 .logo.header-item a {
-  display: $flex-display;
-  align-items: center;
+    display: $flex-display;
+    align-items: center;
 }
+
 .cartBtn img {
-  width: 20px;
+    width: 20px;
 }
 
 
 /* Search input */
 
 .wrap {
-  width: 25%;
-  top: 50%;
-  left: 50%;
-  transform: translate(0%, -2%);
-
-  form {
-    display: flex;
-  }
+    width: 25%;
+    top: 50%;
+    left: 50%;
+    transform: translate(0%, -2%);
+    form {
+        display: flex;
+    }
 }
+
 .search {
-  position: relative;
-  display: flex;
+    position: relative;
+    display: flex;
 }
-.searchTerm {
-  width: 100%;
-  border: 3px solid $font-header-color;
-  border-right: none;
-  padding: 5px;
-  height: 20px;
-  border-radius: 5px 0 0 5px;
-  outline: none;
-  color: $font-header-color;
-  box-sizing: unset;
 
-  :focus {
+.searchTerm {
+    width: 100%;
+    border: 3px solid $font-header-color;
+    border-right: none;
+    padding: 5px;
+    height: 20px;
+    border-radius: 5px 0 0 5px;
+    outline: none;
     color: $font-header-color;
-  }
+    box-sizing: unset;
+     :focus {
+        color: $font-header-color;
+    }
 }
+
 .searchButton {
-  width: 40px;
-  height: 36px;
-  border: 1px solid $font-header-color;
-  background: $font-header-color;
-  text-align: center;
-  color: #fff;
-  border-radius: 0 5px 5px 0;
-  cursor: pointer;
-  font-size: 20px;
+    width: 40px;
+    height: 36px;
+    border: 1px solid $font-header-color;
+    background: $font-header-color;
+    text-align: center;
+    color: #fff;
+    border-radius: 0 5px 5px 0;
+    cursor: pointer;
+    font-size: 20px;
 }
+
 .fa {
-  font: normal normal normal 14px/1 FontAwesome;
-  font-size: inherit;
+    font: normal normal normal 14px/1 FontAwesome;
+    font-size: inherit;
 }
+
 .fa-search:before {
-  content: "\f002";
+    content: "\f002";
 }
+
+
 /* end search */
 
+
 /* Navigation bar styles */
+
 nav {
-  display: flex;
+    display: flex;
 }
+
 .nav-bar {
-  padding: 10px;
-  color: #24292e;
-  margin: 0 15px 0 15px;
+    padding: 10px;
+    color: #24292e;
+    margin: 0 15px 0 15px;
 }
+
 .nav-bar>a {
-  color: $font-header-color;
+    color: $font-header-color;
 }
+
+.nav-bar>a:hover {
+    color: orange;
+}
+
 .mr-1 {
-  margin-right: 16px;
+    margin-right: 16px;
 }

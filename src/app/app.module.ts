@@ -14,6 +14,8 @@ import { CategoryComponent } from './components/category/category.component';
 import { ContactComponent } from './components/contact/contact.component';
 import { ErrorPageComponent } from './components/error-page/error-page.component';
 
+import * as $ from 'jquery';
+
 @NgModule({
   declarations: [
     AppComponent,

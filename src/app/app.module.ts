@@ -13,6 +13,8 @@ import { ProductsComponent } from './components/products/products.component';
 import { CategoryComponent } from './components/category/category.component';
 import { ContactComponent } from './components/contact/contact.component';
 
+import * as $ from 'jquery';
+
 @NgModule({
   declarations: [
     AppComponent,

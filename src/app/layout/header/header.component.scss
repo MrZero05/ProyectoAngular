@@ -1,5 +1,9 @@
 $font-header-color: #757575;
 $flex-display: flex;
+
+a {
+  color: $font-header-color;
+}
 header {
     width: 99%;
     padding: 10px;
@@ -57,7 +61,7 @@ header {
 /* Search input */
 
 .wrap {
-    width: 25%;
+    /* width: 25%; */
     top: 50%;
     left: 50%;
     transform: translate(0%, -2%);

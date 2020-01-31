@@ -12,6 +12,7 @@ import { ShoppingcartComponent } from './components/shoppingcart/shoppingcart.co
 import { ProductsComponent } from './components/products/products.component';
 import { CategoryComponent } from './components/category/category.component';
 import { ContactComponent } from './components/contact/contact.component';
+import { ErrorPageComponent } from './components/error-page/error-page.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { ContactComponent } from './components/contact/contact.component';
     ShoppingcartComponent,
     ProductsComponent,
     CategoryComponent,
-    ContactComponent
+    ContactComponent,
+    ErrorPageComponent
   ],
   imports: [
     BrowserModule,

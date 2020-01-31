@@ -1,0 +1,32 @@
+
+.product-box {
+  margin: 0.2em;
+}
+
+.prod-img {
+  padding: 0.5em 0.4em 0em 0.4em;
+
+  img {
+    max-width:100%;
+  }
+}
+.prod-data {
+  font-family: 'open-sans', lato;
+  color: #98989a;
+  padding: 10px;
+}
+
+.prod-data-desc {
+  color: #000000;
+
+  .prod-data-name {
+    display: flex;
+    justify-content: space-between;
+    min-height: 17px;
+    text-transform: uppercase;
+    padding-top: 8px;
+  }
+}
+.prod-data-ref {
+
+}

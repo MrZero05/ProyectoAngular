@@ -1,3 +1,26 @@
+# Proyecto Final Semillero full stack
+
+El proyecto se basa en la elaboración de una aplicacion de __e-comerce__ con las buenas prácticas y las tecnologías impartidas en las clases de semillero full stack.
+
+## Tecnologías ##
+
+* HTML5
+* GIT
+* CSS3
+* Angular 8
+  * Angular CLI
+  * Componentes
+  * Servicios
+  * Decoradores
+  * Directivas
+  * Pipes
+* Spring (Java)
+
+
+
+## 
+
+
 # ProyectoAngular
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.3.22.

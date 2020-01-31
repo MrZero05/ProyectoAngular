@@ -1,6 +1,9 @@
 $font-header-color: #757575;
 $flex-display: flex;
 
+a {
+  color: $font-header-color;
+}
 header {
   width: 99%;
   padding: 10px;

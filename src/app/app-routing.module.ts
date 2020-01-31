@@ -7,10 +7,12 @@ import { ShoppingcartComponent } from './components/shoppingcart/shoppingcart.co
 import { CategoryComponent } from './components/category/category.component';
 import { ContactComponent } from './components/contact/contact.component';
 import { LayoutComponent } from './layout/layout.component';
+import { ErrorPageComponent } from './components/error-page/error-page.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'layout', pathMatch: 'full' },
   { path: 'login', component: LoginComponent },
+  {path: 'errorPage', component: ErrorPageComponent},
   {
     path: 'layout', component: LayoutComponent, children: [
       { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -20,7 +22,8 @@ const routes: Routes = [
       { path: 'category', component: CategoryComponent },
       { path: 'contactus', component: ContactComponent },
     ]
-  }
+  },
+  { path: '**', pathMatch: 'full', redirectTo: 'errorPage' }
 ];
 
 @NgModule({

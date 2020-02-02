@@ -2,170 +2,26 @@
 <div class="container">
   <main>
     <div class="row">
-      <div class="col-sm-6 col-lg-3">
+      <div class="col-sm-6 col-lg-3" *ngFor="let product of products">
         <div class="product-box">
-          <div class="prod-img text-center">
+          <a  [routerLink]="['/layout/product', product.productId]" class="prod-img text-center">
             <img src="./assets/img/menshoes.jpg" alt="">
-          </div>
+          </a>
           <div class="prod-data">
             <div class="prod-data-ref">
-              Ref: 398754
+              Ref: {{ product.productId }}
             </div>
             <div class="prod-data-desc">
               <div class="prod-data-name">
-                Men shoes
+                {{ product.prodName }}
               </div>
               <div class="prod-data-price">
-                <span class="price-value">$200.000</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="col-sm-6 col-lg-3">
-        <div class="product-box">
-          <div class="prod-img text-center">
-            <img src="./assets/img/menshoes.jpg" alt="">
-          </div>
-          <div class="prod-data">
-            <div class="prod-data-ref">
-              Ref: 398754
-            </div>
-            <div class="prod-data-desc">
-              <div class="prod-data-name">
-                Men shoes
-              </div>
-              <div class="prod-data-price">
-                <span class="price-value">$200.000</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="col-sm-6 col-lg-3">
-        <div class="product-box">
-          <div class="prod-img text-center">
-            <img src="./assets/img/menshoes.jpg" alt="">
-          </div>
-          <div class="prod-data">
-            <div class="prod-data-ref">
-              Ref: 398754
-            </div>
-            <div class="prod-data-desc">
-              <div class="prod-data-name">
-                Men shoes
-              </div>
-              <div class="prod-data-price">
-                <span class="price-value">$200.000</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="col-sm-6 col-lg-3">
-        <div class="product-box">
-          <div class="prod-img text-center">
-            <img src="./assets/img/menshoes.jpg" alt="">
-          </div>
-          <div class="prod-data">
-            <div class="prod-data-ref">
-              Ref: 398754
-            </div>
-            <div class="prod-data-desc">
-              <div class="prod-data-name">
-                Men shoes
-              </div>
-              <div class="prod-data-price">
-                <span class="price-value">$200.000</span>
+                <span class="price-value">${{product.prodPrice}}</span>
               </div>
             </div>
           </div>
         </div>
       </div>
     </div>
-
-    <div class="row">
-      <div class="col-sm-6 col-lg-3">
-        <div class="product-box">
-          <div class="prod-img text-center">
-            <img src="./assets/img/menshoes.jpg" alt="">
-          </div>
-          <div class="prod-data">
-            <div class="prod-data-ref">
-              Ref: 398754
-            </div>
-            <div class="prod-data-desc">
-              <div class="prod-data-name">
-                Men shoes
-              </div>
-              <div class="prod-data-price">
-                <span class="price-value">$200.000</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="col-sm-6 col-lg-3">
-        <div class="product-box">
-          <div class="prod-img text-center">
-            <img src="./assets/img/menshoes.jpg" alt="">
-          </div>
-          <div class="prod-data">
-            <div class="prod-data-ref">
-              Ref: 398754
-            </div>
-            <div class="prod-data-desc">
-              <div class="prod-data-name">
-                Men shoes
-              </div>
-              <div class="prod-data-price">
-                <span class="price-value">$200.000</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="col-sm-6 col-lg-3">
-        <div class="product-box">
-          <div class="prod-img text-center">
-            <img src="./assets/img/menshoes.jpg" alt="">
-          </div>
-          <div class="prod-data">
-            <div class="prod-data-ref">
-              Ref: 398754
-            </div>
-            <div class="prod-data-desc">
-              <div class="prod-data-name">
-                Men shoes
-              </div>
-              <div class="prod-data-price">
-                <span class="price-value">$200.000</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="col-sm-6 col-lg-3">
-        <div class="product-box">
-          <div class="prod-img text-center">
-            <img src="./assets/img/menshoes.jpg" alt="">
-          </div>
-          <div class="prod-data">
-            <div class="prod-data-ref">
-              Ref: 398754
-            </div>
-            <div class="prod-data-desc">
-              <div class="prod-data-name">
-                Men shoes
-              </div>
-              <div class="prod-data-price">
-                <span class="price-value">$200.000</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
   </main>
 </div>

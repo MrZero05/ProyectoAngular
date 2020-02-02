@@ -17,9 +17,9 @@ const routes: Routes = [
     path: 'layout', component: LayoutComponent, children: [
       { path: '', redirectTo: 'home', pathMatch: 'full' },
       { path: 'home', component: HomeComponent },
-      { path: 'products', component: ProductsComponent },
+      { path: 'product/:id', component: ProductsComponent },
       { path: 'shoppingcart', component: ShoppingcartComponent },
-      { path: 'category', component: CategoryComponent },
+      { path: 'category/:id', component: CategoryComponent },
       { path: 'contactus', component: ContactComponent },
     ]
   },

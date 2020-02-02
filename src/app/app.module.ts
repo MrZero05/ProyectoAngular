@@ -15,6 +15,7 @@ import { ContactComponent } from './components/contact/contact.component';
 import { ErrorPageComponent } from './components/error-page/error-page.component';
 
 import * as $ from 'jquery';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import * as $ from 'jquery';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

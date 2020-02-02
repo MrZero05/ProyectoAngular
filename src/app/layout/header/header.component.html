@@ -9,18 +9,18 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav mr-auto">
-          <li class="nav-item active">
-            <a [href]="'/layout/category'" class="mr-3">Hombre</a>
+          <li class="nav-item active header-item-link">
+            <a [href]="'/layout/category/men'" class="mr-3">Hombre</a>
           </li>
-          <li class="nav-item active">
-            <a [href]="'/layout/category'" class="mr-3">Mujer</a>
+          <li class="nav-item active header-item-link">
+            <a [href]="'/layout/category/woman'" class="mr-3">Mujer</a>
           </li>
-          <li class="nav-item active">
-            <a [href]="'/layout/category'" class="mr-3">Niños</a>
+          <li class="nav-item active header-item-link">
+            <a [href]="'/layout/category/child'" class="mr-3">Niños</a>
           </li>
         </ul>
         <div class="header-item-link">
-          <a href="/contactenos" class="mr-3">Contactanos</a>
+          <a [href]="'/contactenos'" class="mr-3">Contactanos</a>
         </div>
         <div class="wrap mr-3">
             <div class="search">
@@ -34,7 +34,7 @@
               <!-- Search form -->
             </div>
         </div>
-        <div class="loginBtn mr-3">Login</div>
+        <div class="loginBtn mr-3 header-item-link"><a [href]="'/login'">Login</a></div>
         <a [href]="'layout/shoppingcart'" class="cartBtn">
             <img src="./assets/img/icons/shopping_cart_icon_small.png" alt="cart">
         </a>

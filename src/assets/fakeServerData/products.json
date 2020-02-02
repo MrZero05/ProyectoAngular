@@ -1,0 +1,45 @@
+
+[
+  { "productId": "1001",
+    "prodName": "producto 1",
+    "prodDescription": "Descripcion de producto 1",
+    "prodCategory": "men",
+    "prodPrice": 10000
+  },
+  { "productId": "1002",
+    "prodName": "producto 2",
+    "prodDescription": "Descripcion de producto 2",
+    "prodCategory": "men",
+    "prodPrice": 11000
+  },
+  { "productId": "1003",
+    "prodName": "producto 3",
+    "prodDescription": "Descripcion de producto 3",
+    "prodCategory": "men",
+    "prodPrice": 12000
+  },
+  { "productId": "1004",
+    "prodName": "producto 4",
+    "prodDescription": "Descripcion de producto 4",
+    "prodCategory": "men",
+    "prodPrice": 11000
+  },
+  { "productId": "1005",
+    "prodName": "producto 5",
+    "prodDescription": "Descripcion de producto 5",
+    "prodCategory": "men",
+    "prodPrice": 13000
+  },
+  { "productId": "1006",
+    "prodName": "producto 6",
+    "prodDescription": "Descripcion de producto 6",
+    "prodCategory": "men",
+    "prodPrice": 13000
+  },
+  { "productId": "1007",
+    "prodName": "producto 7",
+    "prodDescription": "Descripcion de producto 7",
+    "prodCategory": "men",
+    "prodPrice": 13000
+  }
+]

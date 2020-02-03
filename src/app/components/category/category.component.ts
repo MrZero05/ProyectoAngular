@@ -24,7 +24,7 @@ export class CategoryComponent implements OnInit {
 
     this.service.getProductByCategory(this.category).subscribe(
       data => {
-        console.log(data)
+        console.log(data);
         this.products = data;
       }
     );

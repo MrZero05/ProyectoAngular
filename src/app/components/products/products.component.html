@@ -19,23 +19,23 @@
             </aside>
             <aside class="col-sm-7">
                 <article class="card-body p-5">
-                    <h3 class="title mb-3">Tenis Nike Super running</h3>
+                    <h3 class="title mb-3"> {{product.prodName}} </h3>
 
                     <p class="price-detail-wrap">
                         <span class="precio">
-                            <span class="currency">COP $</span><span class="num">145.000</span>
+                            <span class="currency">COP $</span><span class="num">{{product.prodPrice}}</span>
                         </span>
                     </p>
                     <!-- price-detail-wrap .// -->
                     <dl class="item-property">
                         <dt>Descripción</dt>
                         <dd>
-                            <p>Aquí va una corta descripción sobre el producto que se está vendiendo. </p>
+                            <p>{{product.prodDescription}}</p>
                         </dd>
                     </dl>
                     <dl class="param param-feature">
-                        <dt>Modelo#</dt>
-                        <dd>12345611</dd>
+                        <dt>Categoria</dt>
+                        <dd>{{product.prodCategory}}</dd>
                     </dl>
                     <!-- item-property-hor .// -->
                     <dl class="param param-feature">

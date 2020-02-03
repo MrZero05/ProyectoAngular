@@ -53,8 +53,31 @@ header {
     align-items: center;
 }
 
-.cartBtn img {
+.cartBtn {
+  img {
     width: 20px;
+  }
+  .cart-count {
+    background-color: #757575;
+    color: white;
+    width: 25px;
+    height: 25px;
+    top: -1px;
+    left: 98%;
+    position: absolute;
+    border-radius: 50%;
+    opacity: .95;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  @media screen and (max-width: 990px) {
+    .cart-count {
+      top:16.2em;
+      left: 5%;
+    }
+  }
 }
 
 

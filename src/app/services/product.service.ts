@@ -15,4 +15,11 @@ export class ProductService {
     console.log(category);
     return this.http.get<Product[]>('http://172.19.12.163:3000/products');
   }
+
+  getProductById(id: string): Observable<Product> {
+    // Call service Api to bring a list of product fitlered by id
+    console.log(id);
+    return this.http.get<Product>('http://172.19.12.163:3000/products/' + id);
+
+  }
 }

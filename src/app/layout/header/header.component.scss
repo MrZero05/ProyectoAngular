@@ -17,6 +17,10 @@ header {
     letter-spacing: 1.7px;
     text-transform: uppercase;
     color: rgb(33, 42, 47);
+
+    .min-vw-98 {
+      min-width: 99vw!important;
+    }
 }
 
 .header-item {

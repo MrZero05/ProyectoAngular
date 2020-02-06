@@ -4,4 +4,6 @@ export interface Product {
   prodDescription: string;
   prodCategory: string;
   prodPrice: number;
+  prodImagePrincipal: string;
+  prodImageMin: string;
 }

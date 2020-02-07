@@ -13,14 +13,18 @@
     <div class="login-box">
         <img class="avatar" src="assets/img/icons/logo.png" alt="Logo">
         <h1>Login</h1>
-        <form>
+        <form novalidate [formGroup]="myForm">
             <!--Email-->
             <label for="email">Email</label>
-            <input type="text" placeholder="Enter Email">
-
+            <input type="text" placeholder="Enter Email" formControlName="email">
+            <div *ngIf="myForm.controls['email'].invalid && (myForm.controls['email'].dirty || myForm.controls['email'].touched)" class="alert alert-danger">
+                <div *ngIf="myForm.get('email').errors && myForm.get('email').dirty">
+                    Email is required.
+                </div>
+            </div>
             <!--Password-->
             <label for="password">Password</label>
-            <input type="password" placeholder="Enter Password">
+            <input type="password" placeholder="Enter Password" formControlName="password">
 
             <input type="submit" value="Log In">
             <a href="#">Recuperar contraseña</a><br>

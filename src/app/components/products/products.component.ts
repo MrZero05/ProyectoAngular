@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ProductService } from '../../services/product.service';
 import { Product } from 'src/app/dto/product';
 import { ActivatedRoute } from '@angular/router';
+import { ShoppingCartService } from 'src/app/services/shoppingCart/shopping-cart.service';
 
 @Component({
   selector: 'app-products',
@@ -14,7 +15,8 @@ export class ProductsComponent implements OnInit {
   product: Product;
 
   constructor(private route: ActivatedRoute,
-              private productServie: ProductService) {
+              private productServie: ProductService,
+              private shoppingCart: ShoppingCartService) {
     this.id = this.route.snapshot.paramMap.get('id');
     this.showProductById(this.id);
   }
@@ -29,5 +31,9 @@ export class ProductsComponent implements OnInit {
         this.product = data[0];
       }
     );
+  }
+
+  addToCart() {
+    this.shoppingCart.addToCart();
   }
 }

@@ -4,6 +4,19 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class ShoppingCartService {
+  count: number;
 
-  constructor() { }
+  constructor() {
+    this.count = 0;
+  }
+
+  addToCart() {
+
+    this.count++;
+  }
+
+  removeFromCart() {
+
+    this.count--;
+  }
 }

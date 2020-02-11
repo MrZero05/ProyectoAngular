@@ -16,6 +16,8 @@ import { ErrorPageComponent } from './components/error-page/error-page.component
 
 import * as $ from 'jquery';
 import { HttpClientModule } from '@angular/common/http';
+import { ReactiveFormsModule } from '@angular/forms';
+import { SignUpComponent } from './components/sign-up/sign-up.component';
 
 @NgModule({
   declarations: [
@@ -29,12 +31,14 @@ import { HttpClientModule } from '@angular/common/http';
     ProductsComponent,
     CategoryComponent,
     ContactComponent,
-    ErrorPageComponent
+    ErrorPageComponent,
+    SignUpComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

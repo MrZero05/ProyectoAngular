@@ -31,9 +31,16 @@ export class ProductsComponent implements OnInit {
         this.product = data[0];
       }
     );
+
+    /* only for test efects
+    const p: Product = {productId: '123', prodName: 'name', prodDescription: 'desc', prodPrice: 150000};
+    p.prodName = 'name';
+    this.product = p; */
   }
 
-  addToCart() {
-    this.shoppingCart.addToCart();
+  addToCart($event: any) {
+    $event.preventDefault();
+
+    this.shoppingCart.addToCart(this.product, 1);
   }
 }

@@ -35,9 +35,9 @@
                 </div>
             </div>
             <div class="loginBtn mr-3 header-item-link"><a [href]="'/login'">Login</a></div>
-            <a [href]="'layout/shoppingcart'" class="cartBtn">
+            <a [ngClass]="(shoppingCart.count == 0)? 'hidden' : ''" [href]="'layout/shoppingcart'" class="cartBtn">
                 <img src="./assets/img/icons/shopping_cart_icon_small.png" alt="cart">
-                <span class="cart-count">1</span>
+                <span class="cart-count"> {{ shoppingCart.count }} </span>
             </a>
         </div>
     </nav>

@@ -17,8 +17,8 @@
                 </article>
                 <!-- gallery-wrap .end// -->
             </aside>
-            <aside class="col-sm-7">
-                <article class="card-body p-5">
+            <aside class="col-sm-7" >
+                <article class="card-body p-5" *ngIf="product">
                     <h3 class="title mb-3"> {{product.prodName}} </h3>
 
                     <p class="price-detail-wrap">
@@ -93,7 +93,9 @@
                     <!-- row.// -->
                     <hr>
                     <a href="#" class="btn btn-lg btn-primary text-uppercase"> Comprar </a>
-                    <a href="#" class="btn btn-lg btn-outline-primary text-uppercase"> <i class="fas fa-shopping-cart"></i> Agregar al carrito </a>
+                    <a href="" (click) = "addToCart($event)" class="btn btn-lg btn-outline-primary text-uppercase">
+                      <i class="fas fa-shopping-cart"></i> Agregar al carrito
+                    </a>
                 </article>
                 <!-- card-body.// -->
             </aside>

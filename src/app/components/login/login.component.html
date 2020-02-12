@@ -15,25 +15,12 @@
         <h1>Login</h1>
         <form novalidate [formGroup]="myForm">
             <!--Email-->
-            <label for="email">Email</label>
-            <input type="text" placeholder="Enter Email" formControlName="email">
-            <div *ngIf="myForm.controls['email'].invalid && (myForm.controls['email'].dirty || myForm.controls['email'].touched)" class="alert alert-danger">
-                <div *ngIf="myForm.get('email').errors && myForm.get('email').dirty">
-                    Se requiere un Email
-                </div>
-            </div>
+            <label for="userNombre">User</label>
+            <input type="text" placeholder="User" formControlName="userNombre">
             <!--Password-->
             <label for="password">Password</label>
-            <input type="password" placeholder="Enter Password" formControlName="password">
-            <div *ngIf="myForm.controls['password'].invalid && (myForm.controls['password'].dirty || myForm.controls['password'].touched)" class="alert alert-danger">
-                <div *ngIf="myForm.get('password').hasError('required')">
-                    Se requiere un password
-                </div>
-                <div *ngIf="myForm.get('password').hasError('minlength')">
-                    Se requiere password de minímo 8 carácteres
-                </div>
-            </div>
-            <input type="submit" value="Log In">
+            <input type="password" placeholder="Enter Password" formControlName="userPassword">
+            <input type="submit" value="Log In" (click)="iniciarSession()">
             <a href="#">Recuperar contraseña</a><br>
             <a href="/signup">No tengo una cuenta</a>
         </form>

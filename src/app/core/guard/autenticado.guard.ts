@@ -14,7 +14,7 @@ export class AutenticadoGuard implements CanActivate {
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
 
       let puedeEntrar: boolean;
-      if (sessionStorage.getItem('token')) {
+      if (localStorage.getItem('token')) {
         puedeEntrar = true;
       } else {
         this.router.navigate(['/login']);

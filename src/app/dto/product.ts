@@ -1,9 +1,9 @@
 export interface Product {
-  productId: string;
-  prodName: string;
+  prodId: string;
+  prodNombre: string;
   prodDescription: string;
   prodCategory: string;
-  prodPrice: number;
-  prodImagePrincipal: string;
-  prodImageMin: string;
+  prodPrecio: number;
+  prodImageMain: string;
+  prodImage: string;
 }

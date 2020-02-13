@@ -15,19 +15,19 @@
     <div class="row">
       <div class="col-sm-6 col-lg-3" *ngFor="let product of products">
         <div class="product-box">
-          <a  [routerLink]="['/layout/product', product.productId]" class="prod-img text-center">
-            <img [src]="product.prodImagePrincipal " alt="">
+          <a  [routerLink]="['/layout/product', product.prodId]" class="prod-img text-center">
+            <img [src]="product.prodImageMain " alt="">
           </a>
           <div class="prod-data">
             <div class="prod-data-ref">
-              Ref: {{ product.productId }}
+              Ref: {{ product.prodId }}
             </div>
             <div class="prod-data-desc">
               <div class="prod-data-name">
-                {{ product.prodName }}
+                {{ product.prodNombre }}
               </div>
               <div class="prod-data-price">
-                <span class="price-value">${{product.prodPrice}}</span>
+                <span class="price-value">${{product.prodPrecio}}</span>
               </div>
             </div>
           </div>

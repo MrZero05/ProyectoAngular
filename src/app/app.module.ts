@@ -19,6 +19,7 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { SignUpComponent } from './components/sign-up/sign-up.component';
 import { InicioSesionService } from './core/interceptors/inicioSesion/inicio-sesion.service';
+import { Interceptor } from './interceptors/interceptor';
 
 @NgModule({
   declarations: [
@@ -42,7 +43,8 @@ import { InicioSesionService } from './core/interceptors/inicioSesion/inicio-ses
     ReactiveFormsModule
   ],
   providers: [
-    {provide: HTTP_INTERCEPTORS, useClass: InicioSesionService, multi: true}
+    {provide: HTTP_INTERCEPTORS, useClass: InicioSesionService, multi: true},
+    { provide: HTTP_INTERCEPTORS, useClass: Interceptor, multi: true }
   ],
   bootstrap: [AppComponent]
 })

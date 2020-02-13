@@ -26,8 +26,8 @@ export class LoginComponent implements OnInit {
 
 
   iniciarSession() {
-    this.serviceInicio.iniciarSession(this.myForm.value).subscribe(dato => {
-      console.log('formulario2: ', this.myForm.value);
+    this.serviceInicio.iniciarSession(this.myForm.value)
+    .subscribe(dato => {
       localStorage.setItem('token', dato.token);
       this.router.navigate(['/layout/home']);
     }, error => {

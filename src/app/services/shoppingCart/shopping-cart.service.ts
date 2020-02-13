@@ -18,7 +18,7 @@ export class ShoppingCartService {
   addToCart(prod: Product, qty: number) {
     this.loadSessionStorageShopCart();
 
-    const pi: ShoppingItem = {prodId: prod.productId, prodQty: qty, unitPrice: prod.prodPrice, totalPrice: (prod.prodPrice * qty)};
+    const pi: ShoppingItem = {prodId: prod.prodId, prodQty: qty, unitPrice: prod.prodPrecio, totalPrice: (prod.prodPrecio * qty)};
     this.shoppinCart.shoppingItems.push(pi);
 
     sessionStorage.setItem('shopCart', JSON.stringify(this.shoppinCart));

@@ -13,7 +13,7 @@ export class LoginComponent implements OnInit {
   myForm: FormGroup;
 
 
-  constructor(private fb: FormBuilder, private serviceInicio: InicioSessionService,private router: Router ) {
+  constructor(private fb: FormBuilder, private serviceInicio: InicioSessionService, private router: Router ) {
     this.myForm = new FormGroup({
       userNombre: new FormControl(null, [Validators.required, Validators.min(2)]),
       userPassword: new FormControl(null, Validators.required)
@@ -28,7 +28,7 @@ export class LoginComponent implements OnInit {
   iniciarSession() {
     this.serviceInicio.iniciarSession(this.myForm.value).subscribe(dato => {
       console.log('formulario2: ', this.myForm.value);
-      sessionStorage.setItem('token', dato.token);
+      localStorage.setItem('token', dato.token);
       this.router.navigate(['/layout/home']);
     }, error => {
       console.log(error);

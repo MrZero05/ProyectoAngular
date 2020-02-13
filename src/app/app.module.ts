@@ -15,9 +15,10 @@ import { ContactComponent } from './components/contact/contact.component';
 import { ErrorPageComponent } from './components/error-page/error-page.component';
 
 import * as $ from 'jquery';
-import { HttpClientModule } from '@angular/common/http';
-import { ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { SignUpComponent } from './components/sign-up/sign-up.component';
+import { InicioSesionService } from './core/interceptors/inicioSesion/inicio-sesion.service';
 
 @NgModule({
   declarations: [
@@ -40,7 +41,9 @@ import { SignUpComponent } from './components/sign-up/sign-up.component';
     HttpClientModule,
     ReactiveFormsModule
   ],
-  providers: [],
+  providers: [
+    {provide: HTTP_INTERCEPTORS, useClass: InicioSesionService, multi: true}
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

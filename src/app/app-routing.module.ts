@@ -9,14 +9,16 @@ import { ContactComponent } from './components/contact/contact.component';
 import { LayoutComponent } from './layout/layout.component';
 import { ErrorPageComponent } from './components/error-page/error-page.component';
 import { SignUpComponent } from './components/sign-up/sign-up.component';
+import { AutenticadoGuard } from './core/guard/autenticado.guard';
 
 const routes: Routes = [
   { path: '', redirectTo: 'layout', pathMatch: 'full' },
   { path: 'login', component: LoginComponent },
-  { path: 'signup', component: SignUpComponent},
-  {path: 'errorPage', component: ErrorPageComponent},
+  { path: 'signup', component: SignUpComponent },
+  { path: 'errorPage', component: ErrorPageComponent },
   {
-    path: 'layout', component: LayoutComponent, children: [
+    path: 'layout', component: LayoutComponent, canActivate: [AutenticadoGuard],
+     children: [
       { path: '', redirectTo: 'home', pathMatch: 'full' },
       { path: 'home', component: HomeComponent },
       { path: 'product/:id', component: ProductsComponent },

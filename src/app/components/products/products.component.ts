@@ -27,8 +27,7 @@ export class ProductsComponent implements OnInit {
   showProductById(id: any) {
     this.productServie.getProductById(id).subscribe(
       data => {
-        console.log(data[0]);
-        this.product = data[0];
+        this.product = data;
       }
     );
 

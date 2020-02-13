@@ -3,14 +3,14 @@
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <!------ Include the above in your HEAD tag ---------->
 
-<div class="container">
+<div class="container" *ngIf="product">
     <div class="card">
         <div class="row">
             <aside class="col-sm-5 border-right">
                 <article class="gallery-wrap">
                     <div class="img-big-wrap">
                         <div>
-                            <a href="#"><img src="/assets/img/sneakers.jpg" alt="Producto"></a>
+                            <a href="#"><img [src]="product.prodImageMain"  alt="Producto"></a>
                         </div>
                     </div>
                     <!-- slider-nav.// -->
@@ -19,11 +19,11 @@
             </aside>
             <aside class="col-sm-7" >
                 <article class="card-body p-5" *ngIf="product">
-                    <h3 class="title mb-3"> {{product.prodName}} </h3>
+                    <h3 class="title mb-3"> {{product.prodNombre}} </h3>
 
                     <p class="price-detail-wrap">
                         <span class="precio">
-                            <span class="currency">COP $</span><span class="num">{{product.prodPrice}}</span>
+                            <span class="currency">COP $</span><span class="num">{{product.prodPrecio}}</span>
                         </span>
                     </p>
                     <!-- price-detail-wrap .// -->

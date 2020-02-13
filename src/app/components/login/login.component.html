@@ -20,6 +20,9 @@
             <!--Password-->
             <label for="password">Password</label>
             <input type="password" placeholder="Enter Password" formControlName="userPassword">
+
+            <div class="error error-msg mb-2">{{ error }}</div>
+
             <input type="submit" value="Log In" (click)="iniciarSession()">
             <a href="#">Recuperar contraseña</a><br>
             <a href="/signup">No tengo una cuenta</a>

@@ -9,7 +9,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit {
-
+  error: string;
   myForm: FormGroup;
 
 
@@ -31,9 +31,9 @@ export class LoginComponent implements OnInit {
       localStorage.setItem('token', dato.token);
       this.router.navigate(['/layout/home']);
     }, error => {
-      console.log(error);
+      this.error = error.error.mensaje;
     }, () => {
-      console.log('Inicio de Session Correctamente');
+      console.log('Inició  Session Correctamente');
     });
   }
 

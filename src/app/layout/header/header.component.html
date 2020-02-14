@@ -34,7 +34,13 @@
                     <!-- Search form -->
                 </div>
             </div>
-            <div class="loginBtn mr-3 header-item-link"><a [href]="'/login'">Login</a></div>
+            <div class="loginBtn mr-3 header-item-link" *ngIf="!session.userLoggedIn else loggedIn">
+              <a [href]="'/login'" >Login</a>
+            </div>
+            <ng-template #loggedIn>
+              <div *ngIf="session.userLoggedIn"> {{ session.userLoggedIn }} </div>
+              <a href="#" class="logout ml-1 mr-1"> <img src="./assets/img/icons/logout.png" alt="logOut"> </a>
+            </ng-template>
             <a [ngClass]="(shoppingCart.count == 0)? 'hidden' : ''" [href]="'layout/shoppingcart'" class="cartBtn">
                 <img src="./assets/img/icons/shopping_cart_icon_small.png" alt="cart">
                 <span class="cart-count"> {{ shoppingCart.count }} </span>

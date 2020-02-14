@@ -20,6 +20,7 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { SignUpComponent } from './components/sign-up/sign-up.component';
 import { InicioSesionService } from './core/interceptors/inicioSesion/inicio-sesion.service';
 import { Interceptor } from './interceptors/interceptor';
+import { PromotionComponent } from './components/promotion/promotion.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,8 @@ import { Interceptor } from './interceptors/interceptor';
     CategoryComponent,
     ContactComponent,
     ErrorPageComponent,
-    SignUpComponent
+    SignUpComponent,
+    PromotionComponent
   ],
   imports: [
     BrowserModule,

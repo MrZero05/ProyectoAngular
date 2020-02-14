@@ -10,6 +10,7 @@ import { LayoutComponent } from './layout/layout.component';
 import { ErrorPageComponent } from './components/error-page/error-page.component';
 import { SignUpComponent } from './components/sign-up/sign-up.component';
 import { AutenticadoGuard } from './core/guard/autenticado.guard';
+import { PromotionComponent } from './components/promotion/promotion.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'layout', pathMatch: 'full' },
@@ -25,6 +26,7 @@ const routes: Routes = [
       { path: 'shoppingcart', component: ShoppingcartComponent },
       { path: 'category/:id', component: CategoryComponent },
       { path: 'contactus', component: ContactComponent },
+      { path: 'promotion', component: PromotionComponent }
     ]
   },
   { path: '**', pathMatch: 'full', redirectTo: 'errorPage' }

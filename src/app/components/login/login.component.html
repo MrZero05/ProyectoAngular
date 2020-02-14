@@ -21,7 +21,7 @@
                 <div *ngIf="myForm.get('userNombre').hasError('required')">
                     Se requiere un Nombre de Usuario
                 </div>
-                <div *ngIf="myForm.get('userPassword').hasError('minlength')">
+                <div *ngIf="myForm.get('userNombre').hasError('minlength')">
                     Se requiere un Nombre de Usuario de minímo 5 carácteres
                 </div>
             </div>

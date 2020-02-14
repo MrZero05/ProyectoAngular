@@ -10,7 +10,8 @@ export class SignUpService {
 
   constructor(private http: HttpClient) {}
 
-  registerUser(regisuser: any): Observable<any> {
+  registerUser(regisuser: RegisterUser): Observable<any> {
+    console.log('objeto desde service: ', regisuser);
     return this.http.post<any>('http://localhost:8080/api/user/register', regisuser);
   }
 

@@ -14,9 +14,9 @@ export class SignUpComponent implements OnInit {
   constructor(private fb: FormBuilder, private service: SignUpService, private router: Router) {
 
     this.signUpForm = this.fb.group({
-      username: ['', [Validators.required]],
+      username: ['', [Validators.required, Validators.minLength(5)]],
       email: ['', [Validators.required, Validators.email]],
-      password: ['', [Validators.required, Validators.minLength(8)]]
+      password: ['', [Validators.required, Validators.minLength(6)]]
     });
    }
 
@@ -26,7 +26,7 @@ export class SignUpComponent implements OnInit {
   registerSession() {
     this.service.registerUser(this.signUpForm.value)
     .subscribe(dato => {
-      this.router.navigate(['/layout/login']);
+      this.router.navigate(['/login']);
     }, error => {
       console.log('Este es el error desde angular: ' + error);
     }, () => {

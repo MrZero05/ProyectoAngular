@@ -28,6 +28,7 @@
             <!--Password-->
             <label for="password">Password</label>
             <input type="password" placeholder="Enter Password" formControlName="userPassword">
+            <div class="error error-msg mb-2">{{ error }}</div>
             <div *ngIf="myForm.controls['userPassword'].invalid && (myForm.controls['userPassword'].dirty || myForm.controls['userPassword'].touched)" class="alert alert-danger">
                 <div *ngIf="myForm.get('userPassword').hasError('required')">
                     Se requiere un password

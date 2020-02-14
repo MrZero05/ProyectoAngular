@@ -39,7 +39,7 @@ export class ProductsComponent implements OnInit {
 
   addToCart($event: any) {
     $event.preventDefault();
-
+    console.log('este es el valor del producto que agrego ',this.product);
     this.shoppingCart.addToCart(this.product, 1);
   }
 }

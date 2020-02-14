@@ -12,16 +12,26 @@ export class ShoppingCartService {
 
   constructor() {
     this.count = 0;
-    this.shoppinCart = {shoppingItems: [], totalPrice: 0};
+    this.shoppinCart = { shoppingItems: [], totalPrice: 0 };
+    this.loadLocaltorageShopCart();
   }
 
   addToCart(prod: Product, qty: number) {
-    this.loadSessionStorageShopCart();
-
-    const pi: ShoppingItem = {prodId: prod.prodId, prodQty: qty, unitPrice: prod.prodPrecio, totalPrice: (prod.prodPrecio * qty)};
+    this.loadLocaltorageShopCart();
+    console.log('priducto : ', prod, ' qty', qty);
+    // tslint:disable-next-line: max-line-length
+    const pi: ShoppingItem = {
+      prodId: prod.prodId,
+      prodNombre: prod.prodNombre,
+      prodDescription: prod.prodDescription,
+      prodPrecio: prod.prodPrecio,
+      prodImageMain: prod.prodImageMain,
+      prodQty: qty,
+      totalPrice: (prod.prodPrecio * qty)
+    };
     this.shoppinCart.shoppingItems.push(pi);
 
-    sessionStorage.setItem('shopCart', JSON.stringify(this.shoppinCart));
+    localStorage.setItem('shopCart', JSON.stringify(this.shoppinCart));
     this.count++;
   }
 
@@ -30,14 +40,19 @@ export class ShoppingCartService {
     this.count--;
   }
 
-  loadSessionStorageShopCart() {
-    if (sessionStorage.length > 0 && sessionStorage.getItem('shopCart')) {
-      this.shoppinCart = JSON.parse(sessionStorage.getItem('shopCart'));
+  loadLocaltorageShopCart() {
+    if (localStorage.length > 0 && localStorage.getItem('shopCart')) {
+      this.shoppinCart = JSON.parse(localStorage.getItem('shopCart'));
+      console.log('shoppin CART ', this.shoppinCart);
+      if(this.shoppinCart !== null) {
+        this.count = this.shoppinCart.shoppingItems.length;
+      }
+
     }
   }
 
   getShopCartTotalPrice(items: ShoppingItem[]) {
-    const tot: number = items.reduce( (sum, b) => sum + b.totalPrice, 0);
+    const tot: number = items.reduce((sum, b) => sum + b.totalPrice, 0);
     return tot;
   }
 }

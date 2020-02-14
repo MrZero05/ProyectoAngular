@@ -18,7 +18,6 @@ export class ProductService {
 
   getProductById(id: string): Observable<Product> {
     // Call service Api to bring a list of product fitlered by id
-    console.log(id);
     return this.http.get<Product>('http://localhost:8080/api/producto/getProducto/' + id);
 
   }

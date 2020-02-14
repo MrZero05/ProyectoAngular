@@ -16,67 +16,39 @@
                         <tr>
                             <th scope="col"> </th>
                             <th scope="col">Product</th>
-                            <th scope="col">Disponibilidad</th>
                             <th scope="col" class="text-center">Cantidad</th>
                             <th scope="col" class="text-right">Precio Unidad</th>
                             <th scope="col" class="text-right">Total</th>
-                            <th> </th>
+                            <th></th>
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td><img src="./assets/img/zapato1.jpg" alt="" /></td>
-                            <td>Product Name Dada</td>
-                            <td>In stock</td>
-                            <td><input class="form-control" type="text" value="1" /></td>
-                            <td class="text-right">124,90 €</td>
-                            <td class="text-right">124,90 €</td>
-                            <td class="text-right"><button class="btn btn-sm btn-danger">Eliminar</button> </td>
+                        <tr *ngFor="let item of listShoppingItems; index as i">
+                            <td><img [src]="item.prodImageMain" alt="" height="70px" width="70px" /></td>
+                            <td>{{ item.prodNombre }}</td>
+                            <td>
+                                <input size="2" (input)="updateProductQty(item, $event.target.value)" class=" form-control " type="text " [value]="item.prodQty " /></td>
+                            <td class="text-right ">{{ item.prodPrecio | currency}}</td>
+                            <td class="text-right ">{{ item.totalPrice | currency}}</td>
+                            <td class="text-right "><button class="btn btn-sm btn-danger " (click)="removerItem(i) ">Eliminar</button>
+                            </td>
                         </tr>
+
                         <tr>
-                            <td><img src="./assets/img/zapato2.jpg" alt="" /> </td>
-                            <td>Product Name Toto</td>
-                            <td>In stock</td>
-                            <td><input class="form-control" type="text" value="1" /></td>
-                            <td class="text-right">33,90 €</td>
-                            <td class="text-right">124,90 €</td>
-                            <td class="text-right"><button class="btn btn-sm btn-danger">Eliminar</button> </td>
-                        </tr>
-                        <tr>
-                            <td><img src="./assets/img/zapato3.jpg" alt="" /> </td>
-                            <td>Product Name Titi</td>
-                            <td>In stock</td>
-                            <td><input class="form-control" type="text" value="1" /></td>
-                            <td class="text-right">70,00 €</td>
-                            <td class="text-right">124,90 €</td>
-                            <td class="text-right"><button class="btn btn-sm btn-danger">Eliminar </button> </td>
-                        </tr>
-                        <tr>
-                            <td colspan="5"></td>
-                            <td>Sub-Total</td>
-                            <td class="text-right">255,90 €</td>
-                        </tr>
-                        <tr>
-                            <td colspan="5"></td>
-                            <td>Shipping</td>
-                            <td class="text-right">6,90 €</td>
-                        </tr>
-                        <tr>
-                            <td colspan="5"></td>
-                            <td><strong>Total</strong></td>
-                            <td class="text-right"><strong>346,90 €</strong></td>
+                            <td colspan="5" class="text-right">Total a pagar</td>
+                            <td>{{shoppinCart.totalPrice | currency }}</td>
                         </tr>
                     </tbody>
                 </table>
             </div>
         </div>
-        <div class="col mb-2">
-            <div class="row">
-                <div class="col-sm-12  col-md-6">
-                    <button class="btn btn-block btn-light">Continue Shopping</button>
+        <div class="col mb-2 ">
+            <div class="row ">
+                <div class="col-sm-12 col-md-6 ">
+                    <button class="btn btn-block btn-light ">Continue Shopping</button>
                 </div>
-                <div class="col-sm-12 col-md-6 text-right">
-                    <button class="btn btn-lg btn-block btn-success text-uppercase">Checkout</button>
+                <div class="col-sm-12 col-md-6 text-right ">
+                    <button class="btn btn-lg btn-block btn-success text-uppercase ">Checkout</button>
                 </div>
             </div>
         </div>

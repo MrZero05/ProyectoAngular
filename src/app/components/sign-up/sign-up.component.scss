@@ -1,67 +1,66 @@
 .wrapper {
-  margin: 0 auto;
+    margin: 0 auto;
 }
+
 .wrapper--w780 {
-  max-width: 780px;
+    max-width: 780px;
 }
+
 .card-body {
-
-  font-size: 24px;
-  color: #fff;
-  font-weight: 400;
-  margin-bottom: 36px;
-
-  .input-group {
-    margin-bottom: 33px;
-  }
-
-  .title {
     font-size: 24px;
     color: #fff;
     font-weight: 400;
     margin-bottom: 36px;
-  }
+    .input-group {
+        margin-bottom: 33px;
+    }
+    .title {
+        font-size: 24px;
+        color: #fff;
+        font-weight: 400;
+        margin-bottom: 36px;
+    }
 }
 
 .card-3 {
-
-  background: #000;
-  -webkit-border-radius: 10px;
-  -moz-border-radius: 10px;
-  border-radius: 10px;
-  -webkit-box-shadow: 0px 8px 20px 0px rgba(0, 0, 0, 0.15);
-  -moz-box-shadow: 0px 8px 20px 0px rgba(0, 0, 0, 0.15);
-  box-shadow: 0px 8px 20px 0px rgba(0, 0, 0, 0.15);
-  width: 100%;
-  display: table;
-
-  .card-heading {
-    background: url(/assets/img/sports_shoes-wallpaper-1920x1080.jpg) top left no-repeat;
-    display: table-cell;
-    width: 50%;
-  }
-
-  .card-body {
-    padding: 57px 65px;
-    padding-bottom: 65px;
-    display: table-cell;
-  }
+    background: #000;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+    -webkit-box-shadow: 0px 8px 20px 0px rgba(0, 0, 0, 0.15);
+    -moz-box-shadow: 0px 8px 20px 0px rgba(0, 0, 0, 0.15);
+    box-shadow: 0px 8px 20px 0px rgba(0, 0, 0, 0.15);
+    width: 100%;
+    display: table;
+    .card-heading {
+        background: url(/assets/img/sports_shoes-wallpaper-1920x1080.jpg) top left no-repeat;
+        display: table-cell;
+        width: 50%;
+    }
+    .card-body {
+        padding: 57px 65px;
+        padding-bottom: 65px;
+        display: table-cell;
+    }
+    .message-error {
+        font-size: 12px;
+    }
 }
 
 .btn-blue {
-  background: #50a4b8;
-  font-size: 18px;
-  border: none;
-  outline: none;
-  border-radius: 20px;
+    background: #50a4b8;
+    font-size: 18px;
+    border: none;
+    outline: none;
+    border-radius: 20px;
 }
 
 .input--style-3 {
-  height: 40px;
-  color: white;
-  font-size: 16px;
-  border: none;
-  border-bottom: 1px solid #fff;
-  background: transparent;
-  outline: none;
+    height: 40px;
+    color: white;
+    font-size: 16px;
+    border: none;
+    border-bottom: 1px solid #fff;
+    background: transparent;
+    outline: none;
 }

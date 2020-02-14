@@ -1,27 +1,50 @@
-
 <div class="page-wrapper pb-3 pt-5">
-  <div class="wrapper wrapper--w780">
-    <div class="card card-3">
-      <div class="card-heading">
+    <div class="wrapper wrapper--w780">
+        <div class="card card-3">
+            <div class="card-heading">
 
-      </div>
-      <div class="card-body">
-        <h2 class="title"> Registrate</h2>
-        <form [formGroup]="" method="POST">
-          <div class="input-group">
-            <input type="text" class="input--style-3" type="text" placeholder="Email">
-          </div>
-          <div class="input-group">
-            <input type="text" class="input--style-3" type="text" placeholder="Nombre">
-          </div>
-          <div class="input-group">
-            <input type="text" class="input--style-3" type="text" placeholder="Contraseña">
-          </div>
-          <div class="pt-3">
-            <button type="submit" class="btn btn-blue">Registarse</button>
-          </div>
-        </form>
-      </div>
+            </div>
+            <div class="card-body">
+                <h2 class="title"> Registrate</h2>
+                <form [formGroup]="signUpForm" method="POST">
+                    <div class="input-group">
+                        <input type="text" class="input--style-3" type="text" placeholder="Nombre" formControlName="username">
+                        <div *ngIf="signUpForm.controls['username'].invalid && (signUpForm.controls['username'].dirty || signUpForm.controls['username'].touched)" class="alert alert-danger">
+                            <div class="message-error" *ngIf="signUpForm.get('username').hasError('required')">
+                                Se requiere un Nombre de Usuario
+                            </div>
+                            <div class="message-error" *ngIf="signUpForm.get('username').hasError('minlength')">
+                                Se requiere un Nombre de Usuario de minímo 5 carácteres
+                            </div>
+                        </div>
+                    </div>
+                    <div class="input-group">
+                        <input type="password" class="input--style-3" placeholder="Password" formControlName="password">
+                        <div *ngIf="signUpForm.controls['password'].invalid && (signUpForm.controls['password'].dirty || signUpForm.controls['password'].touched)" class="alert alert-danger">
+                            <div class="message-error" *ngIf="signUpForm.get('password').hasError('required')">
+                                Se requiere un password
+                            </div>
+                            <div class="message-error" *ngIf="signUpForm.get('password').hasError('minlength')">
+                                Se requiere password de minímo 6 carácteres
+                            </div>
+                        </div>
+                    </div>
+                    <div class="input-group">
+                        <input type="text" class="input--style-3" type="text" placeholder="Email" formControlName="email">
+                        <div class="message-error" *ngIf="signUpForm.controls['email'].invalid && (signUpForm.controls['email'].dirty || signUpForm.controls['email'].touched)" class="alert alert-danger">
+                            <div *ngIf="signUpForm.get('email').hasError('required')">
+                                Se requiere un Email
+                            </div>
+                            <div class="message-error" *ngIf="signUpForm.get('email').hasError('email')">
+                                Se requiere una dirección de correo valida
+                            </div>
+                        </div>
+                    </div>
+                    <div class="pt-3">
+                        <button type="submit" class="btn btn-blue" (click)="registerSession()" [disabled]="!signUpForm.valid">Registarse</button>
+                    </div>
+                </form>
+            </div>
+        </div>
     </div>
-  </div>
 </div>

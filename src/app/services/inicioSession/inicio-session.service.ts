@@ -6,11 +6,26 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class InicioSessionService {
+  public userLoggedIn: string;
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {
+    this.userLoggedIn = this.getlocalSession();
+  }
 
   iniciarSession(param: any): Observable<any> {
     return this.http.post<any>('http://localhost:8080/api/login', param);
+  }
+
+  saveSessionLocaly(session: string) {
+    localStorage.setItem('session', session);
+    this.userLoggedIn = this.getlocalSession();
+  }
+
+  getlocalSession(): string {
+    if ( localStorage.getItem('session') == null ) {
+      return null;
+    }
+    return localStorage.getItem('session');
   }
 
 }

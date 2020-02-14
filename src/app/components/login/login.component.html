@@ -14,15 +14,34 @@
         <img class="avatar" src="assets/img/icons/logo.png" alt="Logo">
         <h1>Login</h1>
         <form novalidate [formGroup]="myForm">
-            <!--Email-->
+            <!--NombreUsuario-->
             <label for="userNombre">User</label>
             <input type="text" placeholder="User" formControlName="userNombre">
+            <div *ngIf="myForm.controls['userNombre'].invalid && (myForm.controls['userNombre'].dirty || myForm.controls['userNombre'].touched)" class="alert alert-danger">
+                <div *ngIf="myForm.get('userNombre').hasError('required')">
+                    Se requiere un Nombre de Usuario
+                </div>
+                <div *ngIf="myForm.get('userPassword').hasError('minlength')">
+                    Se requiere un Nombre de Usuario de minímo 5 carácteres
+                </div>
+            </div>
             <!--Password-->
             <label for="password">Password</label>
             <input type="password" placeholder="Enter Password" formControlName="userPassword">
+<<<<<<< HEAD
 
             <div class="error error-msg mb-2">{{ error }}</div>
 
+=======
+            <div *ngIf="myForm.controls['userPassword'].invalid && (myForm.controls['userPassword'].dirty || myForm.controls['userPassword'].touched)" class="alert alert-danger">
+                <div *ngIf="myForm.get('userPassword').hasError('required')">
+                    Se requiere un password
+                </div>
+                <div *ngIf="myForm.get('userPassword').hasError('minlength')">
+                    Se requiere password de minímo 6 carácteres
+                </div>
+            </div>
+>>>>>>> master
             <input type="submit" value="Log In" (click)="iniciarSession()">
             <a href="#">Recuperar contraseña</a><br>
             <a href="/signup">No tengo una cuenta</a>

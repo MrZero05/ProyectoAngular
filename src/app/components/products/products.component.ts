@@ -3,6 +3,7 @@ import { ProductService } from '../../services/product.service';
 import { Product } from 'src/app/dto/product';
 import { ActivatedRoute } from '@angular/router';
 import { ShoppingCartService } from 'src/app/services/shoppingCart/shopping-cart.service';
+import { ShoppingCart } from '../../dto/shopping-cart';
 
 @Component({
   selector: 'app-products',
@@ -13,12 +14,16 @@ export class ProductsComponent implements OnInit {
 
   id: any;
   product: Product;
+  swBotonAgregar: boolean;
+  shoppinCart: ShoppingCart = { shoppingItems: [], totalPrice: 0 };
 
-  constructor(private route: ActivatedRoute,
-              private productServie: ProductService,
-              private shoppingCart: ShoppingCartService) {
+  constructor(private route: ActivatedRoute, private productServie: ProductService, private shoppingCart: ShoppingCartService) {
     this.id = this.route.snapshot.paramMap.get('id');
     this.showProductById(this.id);
+    if (localStorage.length > 0 && localStorage.getItem('shopCart')) {
+      this.shoppinCart = JSON.parse(localStorage.getItem('shopCart'));
+    }
+    this.swBotonAgregar = false;
   }
 
   ngOnInit() {
@@ -28,6 +33,11 @@ export class ProductsComponent implements OnInit {
     this.productServie.getProductById(id).subscribe(
       data => {
         this.product = data;
+        this.shoppinCart.shoppingItems.forEach(prod => {
+          if (prod.prodId === this.product.prodId) {
+            this.swBotonAgregar = true;
+          }
+        });
       }
     );
 
@@ -39,7 +49,7 @@ export class ProductsComponent implements OnInit {
 
   addToCart($event: any) {
     $event.preventDefault();
-    console.log('este es el valor del producto que agrego ',this.product);
     this.shoppingCart.addToCart(this.product, 1);
+    this.swBotonAgregar = true;
   }
 }

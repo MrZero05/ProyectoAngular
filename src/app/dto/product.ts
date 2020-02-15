@@ -6,4 +6,8 @@ export interface Product {
   prodPrecio: number;
   prodImageMain: string;
   prodImage: string;
+  promId: {
+    promPorcetaje: number;
+    prom: string;
+  }
 }

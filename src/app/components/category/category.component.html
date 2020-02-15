@@ -1,38 +1,38 @@
-
 <div class="container">
-  <main>
-    <div class="row">
-      <div class="col-sm-12">
+    <main>
         <div class="row">
-          <div class="wrapper no-gutters">
-            <h1 class="cat-name-heading"> Calzado • {{ category }} </h1>
-            <div class="cat-prod-count" *ngIf="products"> {{ products.length }} Productos</div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="spacer-div"></div>
-    <div class="row">
-      <div class="col-sm-6 col-lg-3" *ngFor="let product of products">
-        <div class="product-box">
-          <a  [routerLink]="['/layout/product', product.prodId]" class="prod-img text-center">
-            <img [src]="product.prodImageMain " alt="img">
-          </a>
-          <div class="prod-data">
-            <div class="prod-data-ref">
-              Ref: {{ product.prodId }}
+            <div class="col-sm-12">
+                <div class="row">
+                    <div class="wrapper no-gutters">
+                        <h1 class="cat-name-heading"> Calzado • {{ category }} </h1>
+                        <div class="cat-prod-count" *ngIf="products"> {{ products.length }} Productos</div>
+                    </div>
+                </div>
             </div>
-            <div class="prod-data-desc">
-              <div class="prod-data-name">
-                {{ product.prodNombre }}
-              </div>
-              <div class="prod-data-price">
-                <span class="price-value">${{product.prodPrecio}}</span>
-              </div>
-            </div>
-          </div>
         </div>
-      </div>
-    </div>
-  </main>
+        <div class="spacer-div"></div>
+        <div class="row">
+            <div class="col-sm-6 col-lg-3" *ngFor="let product of products">
+                <div class="product-box">
+                    <a [routerLink]="['/layout/product', product.prodId]" class="prod-img text-center">
+                        <img [src]="product.prodImageMain " alt="img">
+                    </a>
+                    <div class="prod-data">
+                        <div class="prod-data-ref">
+                            Ref: {{ product.prodId }}
+                        </div>
+                        <div class="prod-data-desc">
+                            <div class="prod-data-name">
+                                {{ product.prodNombre }}
+                            </div>
+                            <div class="prod-data-price">
+                                <span class="price-value">${{product.prodPrecio}}</span>
+                            </div>
+                            <span *ngIf="product.promId" class="badge badge-primary">Descuento: {{ product.promId.promPorcetaje }}%</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
 </div>

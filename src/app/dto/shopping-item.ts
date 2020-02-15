@@ -6,4 +6,5 @@ export interface ShoppingItem {
   prodImageMain: string;
   prodQty: number;
   totalPrice: number;
+  promPorcentaje: number;
 }

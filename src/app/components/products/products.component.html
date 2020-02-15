@@ -10,14 +10,14 @@
                 <article class="gallery-wrap">
                     <div class="img-big-wrap">
                         <div>
-                            <a href="#"><img [src]="product.prodImageMain"  alt="Producto"></a>
+                            <a href="#"><img [src]="product.prodImageMain" alt="Producto"></a>
                         </div>
                     </div>
                     <!-- slider-nav.// -->
                 </article>
                 <!-- gallery-wrap .end// -->
             </aside>
-            <aside class="col-sm-7" >
+            <aside class="col-sm-7">
                 <article class="card-body p-5" *ngIf="product">
                     <h3 class="title mb-3"> {{product.prodNombre}} </h3>
 
@@ -48,8 +48,7 @@
                         <dd>A cualquier parte del país</dd>
                     </dl>
                     <!-- item-property-hor .// -->
-
-                    <hr>
+                    <!-- <hr>
                     <div class="row">
                         <div class="col-sm-5">
                             <dl class="param param-inline">
@@ -62,9 +61,7 @@
                                     </select>
                                 </dd>
                             </dl>
-                            <!-- item-property .// -->
                         </div>
-                        <!-- col.// -->
                         <div class="col-sm-7">
                             <dl class="param param-inline">
                                 <dt>Talla: </dt>
@@ -86,16 +83,13 @@
                                     </label>
                                 </dd>
                             </dl>
-                            <!-- item-property .// -->
+
                         </div>
-                        <!-- col.// -->
-                    </div>
-                    <!-- row.// -->
+        </div>-->
                     <hr>
-                    <a href="#" class="btn btn-lg btn-primary text-uppercase"> Comprar </a>
-                    <a href="" (click) = "addToCart($event)" class="btn btn-lg btn-outline-primary text-uppercase">
-                      <i class="fas fa-shopping-cart"></i> Agregar al carrito
-                    </a>
+                    <button (click)="addToCart($event)" [disabled]="swBotonAgregar" class="btn btn-lg btn-outline-primary text-uppercase">
+                        Agregar al carrito
+                    </button>
                 </article>
                 <!-- card-body.// -->
             </aside>

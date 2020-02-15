@@ -18,41 +18,27 @@
                 <li class="nav-item active header-item-link">
                     <a [href]="'/layout/category/child'" class="mr-3">Niños</a>
                 </li>
-                <li class="nav-item dropdown">
-                  <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    Promociones
-                  </a>
-                  <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" [href]="'/layout/promotion'">Todas</a>
-                  </div>
+
+                <li class="nav-item active header-item-link">
+                    <a [href]="'/layout/promotion'" class="mr-3">Promociones</a>
                 </li>
             </ul>
             <div class="header-item-link">
                 <a [href]="'/layout/contactus'" class="mr-3">Contactanos</a>
             </div>
-            <div class="wrap mr-3">
-                <div class="search">
-                    <form action="#" [formGroup]>
-                        <input type="text" class="searchTerm" name="search" id="search" placeholder="Que te gustaría buscar">
-                        <button type="submit" class="searchButton">
-                        <em class="fa fa-search"></em>
-                    </button>
-                    </form>
-                    <!-- Search form -->
-                    <!-- Search form -->
-                </div>
-            </div>
+
             <div class="loginBtn mr-3 header-item-link" *ngIf="!session.userLoggedIn else loggedIn">
-              <a [href]="'/login'" >Login</a>
+                <a [href]="'/login'">Login</a>
             </div>
-            <ng-template #loggedIn>
-              <div *ngIf="session.userLoggedIn"> {{ session.userLoggedIn }} </div>
-              <a href="#" class="logout ml-1 mr-1" > <img src="./assets/img/icons/logout.png" alt="logOut"> </a>
-            </ng-template>
+
             <a [ngClass]="(shoppingCart.count == 0)? 'hidden' : ''" [href]="'layout/shoppingcart'" class="cartBtn">
                 <img src="./assets/img/icons/shopping_cart_icon_small.png" alt="cart">
                 <span class="cart-count"> {{ shoppingCart.count }} </span>
             </a>
+            <ng-template #loggedIn>
+                <div *ngIf="session.userLoggedIn"> {{ session.userLoggedIn }} </div>
+                <a href="#" class="logout ml-1 mr-1"> <img (click)="logout()" src="./assets/img/icons/logout.png" alt="logOut"> </a>
+            </ng-template>
         </div>
     </nav>
 </header>

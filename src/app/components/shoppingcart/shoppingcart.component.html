@@ -15,9 +15,10 @@
                     <thead>
                         <tr>
                             <th scope="col"> </th>
-                            <th scope="col">Product</th>
+                            <th scope="col">Producto</th>
                             <th scope="col" class="text-center">Cantidad</th>
                             <th scope="col" class="text-right">Precio Unidad</th>
+                            <th scope="col" class="text-right">Descuento</th>
                             <th scope="col" class="text-right">Total</th>
                             <th></th>
                         </tr>
@@ -25,17 +26,21 @@
                     <tbody>
                         <tr *ngFor="let item of listShoppingItems; index as i">
                             <td><img [src]="item.prodImageMain" alt="" height="70px" width="70px" /></td>
-                            <td>{{ item.prodNombre }}</td>
+                            <td>
+                                {{ item.prodNombre }}<br>
+                                <span ng-if="item.promPorcentaje === '0'" class="badge badge-primary">Descuento: {{ item.promPorcentaje }}%</span>
+                            </td>
                             <td>
                                 <input size="2" (input)="updateProductQty(item, $event.target.value)" class=" form-control " type="text " [value]="item.prodQty " /></td>
                             <td class="text-right ">{{ item.prodPrecio | currency}}</td>
+                            <td class="text-right ">{{ (item.prodPrecio * item.promPorcentaje) /100}}</td>
                             <td class="text-right ">{{ item.totalPrice | currency}}</td>
                             <td class="text-right "><button class="btn btn-sm btn-danger " (click)="removerItem(i) ">Eliminar</button>
                             </td>
                         </tr>
 
                         <tr>
-                            <td colspan="5" class="text-right">Total a pagar</td>
+                            <td colspan="6" class="text-right">Total a pagar</td>
                             <td>{{shoppinCart.totalPrice | currency }}</td>
                         </tr>
                     </tbody>
@@ -44,11 +49,12 @@
         </div>
         <div class="col mb-2 ">
             <div class="row ">
-                <div class="col-sm-12 col-md-6 ">
-                    <button class="btn btn-block btn-light ">Continue Shopping</button>
+                <div class="col-sm-12 col-md-6"></div>
+                <div class="col-sm-12 col-md-3 text-right ">
+                    <button [disabled]="shoppinCart.totalPrice === 0" class="btn btn-lg btn-block btn-primary text-uppercase  " (click)="limpiarShoppingCart()">Limpiar Carrito</button>
                 </div>
-                <div class="col-sm-12 col-md-6 text-right ">
-                    <button class="btn btn-lg btn-block btn-success text-uppercase ">Checkout</button>
+                <div class="col-sm-12 col-md-3 text-right ">
+                    <button [disabled]="shoppinCart.totalPrice === 0" class="btn btn-lg btn-block btn-success text-uppercase " (click)="crearFactura()">Comprar</button>
                 </div>
             </div>
         </div>

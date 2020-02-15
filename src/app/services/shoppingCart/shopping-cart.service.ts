@@ -27,7 +27,8 @@ export class ShoppingCartService {
       prodPrecio: prod.prodPrecio,
       prodImageMain: prod.prodImageMain,
       prodQty: qty,
-      totalPrice: (prod.prodPrecio * qty)
+      totalPrice: (prod.prodPrecio * qty) -((prod.prodPrecio * qty) * (prod.promId != null ? prod.promId.promPorcetaje : 0) / 100),
+      promPorcentaje: prod.promId != null ? prod.promId.promPorcetaje : 0
     };
     this.shoppinCart.shoppingItems.push(pi);
 
@@ -44,7 +45,7 @@ export class ShoppingCartService {
     if (localStorage.length > 0 && localStorage.getItem('shopCart')) {
       this.shoppinCart = JSON.parse(localStorage.getItem('shopCart'));
       console.log('shoppin CART ', this.shoppinCart);
-      if(this.shoppinCart !== null) {
+      if (this.shoppinCart !== null) {
         this.count = this.shoppinCart.shoppingItems.length;
       }
 

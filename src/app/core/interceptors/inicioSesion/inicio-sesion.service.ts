@@ -9,7 +9,7 @@ export class InicioSesionService implements HttpInterceptor {
   constructor(private router: Router) { }
 
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
-    console.log(req.url);
+    console.log('mensaje desde inicio-sesion: ', req.url);
 
     const token = sessionStorage.getItem('token');
 

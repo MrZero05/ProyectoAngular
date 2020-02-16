@@ -8,7 +8,7 @@
                 <h2 class="title"> Registrate</h2>
                 <form [formGroup]="signUpForm" method="POST">
                     <div class="input-group">
-                        <input type="text" class="input--style-3" type="text" placeholder="Nombre" formControlName="username">
+                        <input type="text" class="input--style-3" (blur)="validateUser($event.target.value)" type="text" placeholder="Nombre" formControlName="username">
                         <div *ngIf="signUpForm.controls['username'].invalid && (signUpForm.controls['username'].dirty || signUpForm.controls['username'].touched)" class="alert alert-danger">
                             <div class="message-error" *ngIf="signUpForm.get('username').hasError('required')">
                                 Se requiere un Nombre de Usuario

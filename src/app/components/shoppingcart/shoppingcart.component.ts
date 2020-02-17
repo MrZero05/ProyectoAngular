@@ -6,6 +6,7 @@ import { ShoppingItem } from '../../dto/shopping-item';
 import { ShoppingCartService } from '../../services/shoppingCart/shopping-cart.service';
 import { FacturaService } from '../../services/factura/factura.service';
 import { RegisterFactura } from 'src/app/dto/register-factura';
+import { DetalleFactura } from '../../dto/detalleFactura';
 
 @Component({
   selector: 'app-shoppingcart',
@@ -18,13 +19,29 @@ export class ShoppingcartComponent implements OnInit {
   listShoppingItems: ShoppingItem[];
   userName: string;
   registerFactura: RegisterFactura = null;
+  listDetalleFactura: DetalleFactura[];
+  detFact: DetalleFactura;
 
   constructor(private servicioProducto: ProductService, private shoppinService: ShoppingCartService, private facturaService: FacturaService) {
     this.registerFactura = {
       factEstado: 'A',
       factFecha: null,
-      userName: ''
+      userName: '',
+      listDetalleFactura: [{
+        detfactId: null,
+        detfactCantidad: null,
+        detfactValor: null,
+        factId: null,
+        prodId: null
+      }]
     };
+    this.detFact = {
+      detfactId: null,
+      detfactCantidad: null,
+      detfactValor: null,
+      factId: null,
+      prodId: null
+    }
   }
 
   ngOnInit() {
@@ -47,10 +64,19 @@ export class ShoppingcartComponent implements OnInit {
   crearFactura() {
     const sw = confirm('¿Esta Seguro de continuar?');
     if (sw === true) {
-      console.log('usuario en session: ', this.userName);
+      console.log('objero factura antes' , this.registerFactura);
+      for (let index = 0; index < this.shoppinCart.shoppingItems.length; index++) {
+        this.detFact.detfactCantidad = this.shoppinCart.shoppingItems[index].prodQty;
+        this.detFact.detfactValor = this.shoppinCart.shoppingItems[index].totalPrice;
+        this.detFact.prodId = parseInt(this.shoppinCart.shoppingItems[index].prodId);
+        this.registerFactura.listDetalleFactura.push(this.detFact);
+      }
       this.registerFactura.userName = this.userName;
-      console.log('prueba registro factura : ', this.registerFactura);
       this.facturaService.crearFactura(this.registerFactura).subscribe(dato => {
+        this.listShoppingItems = null;
+        this.shoppinCart = { shoppingItems: [], totalPrice: 0 };
+        localStorage.setItem('shopCart', JSON.stringify(this.shoppinCart));
+        this.shoppinService.loadLocaltorageShopCart();
       }, error => {
         console.log('Este es el error desde angular: ' + error);
       }, () => {

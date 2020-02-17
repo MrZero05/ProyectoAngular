@@ -8,5 +8,7 @@ export interface RegisterFactura {
   detfactValor: number;
   factId: number;
   prodId: number;
+  porcDescuento: number;
+  porcValor: number;
   }];
 }

@@ -19,7 +19,6 @@ export class HeaderComponent implements OnInit {
   logout() {
     // Remueve el User del LocalStorage y le hace un set al currenUser a Null
     localStorage.removeItem('session');
-    localStorage.removeItem('shopCart');
     localStorage.removeItem('token');
     this.router.navigate(['/login']);
 }

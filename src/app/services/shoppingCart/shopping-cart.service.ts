@@ -9,10 +9,11 @@ import { ShoppingItem } from 'src/app/dto/shopping-item';
 export class ShoppingCartService {
   shoppinCart: ShoppingCart;
   count: number;
+  userName: string;
 
   constructor() {
     this.count = 0;
-    this.shoppinCart = { shoppingItems: [], totalPrice: 0 };
+    this.shoppinCart = { shoppingItems: [], totalPrice: 0, userShoppinCart: '' };
     this.loadLocaltorageShopCart();
   }
 
@@ -27,11 +28,11 @@ export class ShoppingCartService {
       prodPrecio: prod.prodPrecio,
       prodImageMain: prod.prodImageMain,
       prodQty: qty,
-      totalPrice: (prod.prodPrecio * qty) -((prod.prodPrecio * qty) * (prod.promId != null ? prod.promId.promPorcetaje : 0) / 100),
+      totalPrice: (prod.prodPrecio * qty) - ((prod.prodPrecio * qty) * (prod.promId != null ? prod.promId.promPorcetaje : 0) / 100),
       promPorcentaje: prod.promId != null ? prod.promId.promPorcetaje : 0
     };
     this.shoppinCart.shoppingItems.push(pi);
-
+    this.shoppinCart.userShoppinCart = this.userName;
     localStorage.setItem('shopCart', JSON.stringify(this.shoppinCart));
     this.count++;
   }
@@ -42,14 +43,30 @@ export class ShoppingCartService {
   }
 
   loadLocaltorageShopCart() {
+
+
+
     if (localStorage.length > 0 && localStorage.getItem('shopCart')) {
-      this.shoppinCart = JSON.parse(localStorage.getItem('shopCart'));
-      console.log('shoppin CART ', this.shoppinCart);
       if (this.shoppinCart !== null) {
-        this.count = this.shoppinCart.shoppingItems.length;
+        this.shoppinCart = JSON.parse(localStorage.getItem('shopCart'));
+        console.log('shoppin Cart ' , this.shoppinCart);
+        this.userName = localStorage.getItem('session');
+
+        console.log('user shoppin', this.shoppinCart.userShoppinCart);
+        console.log('user session', this.userName);
+        if (this.shoppinCart.userShoppinCart === this.userName) {
+          this.count = this.shoppinCart.shoppingItems.length;
+        } else {
+          localStorage.removeItem('shopCart');
+        }
+
       }
 
+
+
     }
+
+
   }
 
   getShopCartTotalPrice(items: ShoppingItem[]) {

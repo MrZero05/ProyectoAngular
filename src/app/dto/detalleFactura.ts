@@ -4,4 +4,6 @@ export interface DetalleFactura{
   detfactValor: number;
   factId: number;
   prodId: number;
+  porcDescuento: number;
+  porcValor: number;
 }

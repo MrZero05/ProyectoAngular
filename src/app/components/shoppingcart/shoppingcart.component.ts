@@ -80,6 +80,7 @@ export class ShoppingcartComponent implements OnInit {
       this.registerFactura.userName = this.userName;
       this.facturaService.crearFactura(this.registerFactura).subscribe(dato => {
         this.listShoppingItems = null;
+        alert('Compara realizada correctamente !!');
         this.shoppinCart = { shoppingItems: [], totalPrice: 0, userShoppinCart: '' };
         localStorage.setItem('shopCart', JSON.stringify(this.shoppinCart));
         this.shoppinService.loadLocaltorageShopCart();

@@ -12,7 +12,7 @@ export class SignUpService {
 
   registerUser(regisuser: RegisterUser): Observable<any> {
     console.log('objeto desde service: ', regisuser);
-    return this.http.post<any>('http://localhost:8080/api/user/register', regisuser);
+    return this.http.post<any>('http://3.85.166.43:80/ecommerce/api/user/register', regisuser);
   }
 
 }

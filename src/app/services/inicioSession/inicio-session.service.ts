@@ -13,11 +13,11 @@ export class InicioSessionService {
   }
 
   iniciarSession(param: any): Observable<any> {
-    return this.http.post<any>('http://localhost:8080/api/login', param);
+    return this.http.post<any>('http://3.85.166.43:80/ecommerce/api/login', param);
   }
 
   logOut(): Observable<any> {
-    return this.http.get<any>('http://localhost:8080/api/user/logout');
+    return this.http.get<any>('http://3.85.166.43:80/ecommerce/api/user/logout');
   }
 
   saveSessionLocaly(session: string) {

@@ -95,6 +95,7 @@ export class ShoppingcartComponent implements OnInit {
         console.log('Este es el error desde angular: ' + error);
       }, () => {
         this.listShoppingItems = null;
+        alert('Compara realizada correctamente !!');
         this.shoppinCart = { shoppingItems: [], totalPrice: 0, userShoppinCart: '' };
         localStorage.setItem('shopCart', JSON.stringify(this.shoppinCart));
         this.shoppinService.loadLocaltorageShopCart();

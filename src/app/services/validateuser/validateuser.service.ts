@@ -12,6 +12,6 @@ export class ValidateuserService {
 
   getValidateUserName(userNombre: string): Observable<ValidateUser> {
     console.log(userNombre);
-    return this.http.get<ValidateUser>('http://localhost:8080/api/user/validatoruser/' + userNombre);
+    return this.http.get<ValidateUser>('http://3.85.166.43:80/ecommerce/api/user/validatoruser/' + userNombre);
   }
 }

@@ -7,6 +7,7 @@ import { ShoppingCartService } from '../../services/shoppingCart/shopping-cart.s
 import { FacturaService } from '../../services/factura/factura.service';
 import { RegisterFactura } from 'src/app/dto/register-factura';
 import { DetalleFactura } from '../../dto/detalleFactura';
+import { of } from 'rxjs';
 
 @Component({
   selector: 'app-shoppingcart',
@@ -27,7 +28,7 @@ export class ShoppingcartComponent implements OnInit {
       factEstado: 'A',
       factFecha: null,
       userName: '',
-      listDetalleFactura: [{
+      listDetalleFactura: []/* {
         detfactId: null,
         detfactCantidad: null,
         detfactValor: null,
@@ -35,7 +36,7 @@ export class ShoppingcartComponent implements OnInit {
         prodId: null,
         porcDescuento: null,
         porcValor: null
-      }]
+      } */
     };
     this.detFact = {
       detfactId: null,
@@ -45,7 +46,7 @@ export class ShoppingcartComponent implements OnInit {
       prodId: null,
       porcDescuento: null,
       porcValor: null
-    }
+    };
   }
 
   ngOnInit() {
@@ -68,24 +69,35 @@ export class ShoppingcartComponent implements OnInit {
   crearFactura() {
     const sw = confirm('¿Esta Seguro de continuar?');
     if (sw === true) {
-      console.log('objero factura antes', this.registerFactura);
-      for (let index = 0; index < this.shoppinCart.shoppingItems.length; index++) {
-        this.detFact.detfactCantidad = this.shoppinCart.shoppingItems[index].prodQty;
-        this.detFact.detfactValor = this.shoppinCart.shoppingItems[index].totalPrice;
-        this.detFact.prodId = parseInt(this.shoppinCart.shoppingItems[index].prodId);
-        this.detFact.porcDescuento = this.shoppinCart.shoppingItems[index].promPorcentaje;
-        this.detFact.porcValor = (this.detFact.detfactValor * this.detFact.porcDescuento) / 100;
-        this.registerFactura.listDetalleFactura.push(this.detFact);
+      console.log('objero factura antes' , this.registerFactura);
+
+      for (const shopItem of this.shoppinCart.shoppingItems) {
+        const detFact: DetalleFactura = {
+          detfactId: null,
+          detfactCantidad: null,
+          detfactValor: null,
+          factId: null,
+          prodId: null,
+          porcDescuento: null,
+          porcValor: null};
+        detFact.detfactCantidad = shopItem.prodQty;
+        detFact.detfactValor = shopItem.totalPrice;
+        detFact.prodId = parseInt(shopItem.prodId);
+        detFact.porcDescuento = shopItem.promPorcentaje;
+        detFact.porcValor = (this.detFact.detfactValor * this.detFact.porcDescuento) / 100;
+
+        this.registerFactura.listDetalleFactura.push(detFact);
+
       }
       this.registerFactura.userName = this.userName;
       this.facturaService.crearFactura(this.registerFactura).subscribe(dato => {
+      }, error => {
+        console.log('Este es el error desde angular: ' + error);
+      }, () => {
         this.listShoppingItems = null;
         this.shoppinCart = { shoppingItems: [], totalPrice: 0, userShoppinCart: '' };
         localStorage.setItem('shopCart', JSON.stringify(this.shoppinCart));
         this.shoppinService.loadLocaltorageShopCart();
-      }, error => {
-        console.log('Este es el error desde angular: ' + error);
-      }, () => {
         console.log('Usuario creado Correctamente');
       });
     }

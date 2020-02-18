@@ -16,7 +16,7 @@ import { of } from 'rxjs';
 })
 export class ShoppingcartComponent implements OnInit {
 
-  shoppinCart: ShoppingCart = { shoppingItems: [], totalPrice: 0 };
+  shoppinCart: ShoppingCart = { shoppingItems: [], totalPrice: 0, userShoppinCart: '' };
   listShoppingItems: ShoppingItem[];
   userName: string;
   registerFactura: RegisterFactura = null;
@@ -33,7 +33,9 @@ export class ShoppingcartComponent implements OnInit {
         detfactCantidad: null,
         detfactValor: null,
         factId: null,
-        prodId: null
+        prodId: null,
+        porcDescuento: null,
+        porcValor: null
       } */
     };
     this.detFact = {
@@ -41,7 +43,9 @@ export class ShoppingcartComponent implements OnInit {
       detfactCantidad: null,
       detfactValor: null,
       factId: null,
-      prodId: null
+      prodId: null,
+      porcDescuento: null,
+      porcValor: null
     };
   }
 
@@ -73,12 +77,17 @@ export class ShoppingcartComponent implements OnInit {
           detfactCantidad: null,
           detfactValor: null,
           factId: null,
-          prodId: null};
+          prodId: null,
+          porcDescuento: null,
+          porcValor: null};
         detFact.detfactCantidad = shopItem.prodQty;
         detFact.detfactValor = shopItem.totalPrice;
         detFact.prodId = parseInt(shopItem.prodId);
+        detFact.porcDescuento = shopItem.promPorcentaje;
+        detFact.porcValor = (this.detFact.detfactValor * this.detFact.porcDescuento) / 100;
 
         this.registerFactura.listDetalleFactura.push(detFact);
+
       }
       this.registerFactura.userName = this.userName;
       this.facturaService.crearFactura(this.registerFactura).subscribe(dato => {
@@ -86,7 +95,7 @@ export class ShoppingcartComponent implements OnInit {
         console.log('Este es el error desde angular: ' + error);
       }, () => {
         this.listShoppingItems = null;
-        this.shoppinCart = { shoppingItems: [], totalPrice: 0 };
+        this.shoppinCart = { shoppingItems: [], totalPrice: 0, userShoppinCart: '' };
         localStorage.setItem('shopCart', JSON.stringify(this.shoppinCart));
         this.shoppinService.loadLocaltorageShopCart();
         console.log('Usuario creado Correctamente');
@@ -132,7 +141,7 @@ export class ShoppingcartComponent implements OnInit {
     const sw = confirm('¿Esta Seguro de limpiar el carro de compras?');
     if (sw === true) {
       this.listShoppingItems = null;
-      this.shoppinCart = { shoppingItems: [], totalPrice: 0 };
+      this.shoppinCart = { shoppingItems: [], totalPrice: 0, userShoppinCart: '' };
       localStorage.setItem('shopCart', JSON.stringify(this.shoppinCart));
       this.shoppinService.loadLocaltorageShopCart();
     }

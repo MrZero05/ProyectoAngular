@@ -15,7 +15,7 @@ export class ProductsComponent implements OnInit {
   id: any;
   product: Product;
   swBotonAgregar: boolean;
-  shoppinCart: ShoppingCart = { shoppingItems: [], totalPrice: 0 };
+  shoppinCart: ShoppingCart = { shoppingItems: [], totalPrice: 0 , userShoppinCart: ''};
 
   constructor(private route: ActivatedRoute, private productServie: ProductService, private shoppingCart: ShoppingCartService) {
     this.id = this.route.snapshot.paramMap.get('id');
